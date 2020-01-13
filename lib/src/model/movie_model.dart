@@ -1,17 +1,17 @@
-class Movies{
+class Movies {
   List<Movie> items = new List();
-  Movies();
-  Movies.fromJsonList(List<dynamic> jsonList){
-    if(jsonList==null) return;
 
-    for(var item in jsonList){
+  Movies();
+
+  Movies.fromJsonList(List<dynamic> jsonList) {
+    if (jsonList == null) return;
+
+    for (var item in jsonList) {
       final movie = new Movie.fromJSONMap(item);
       items.add(movie);
     }
   }
-
 }
-
 
 class Movie {
   double popularity;
@@ -46,24 +46,28 @@ class Movie {
     this.releaseDate,
   });
 
-  Movie.fromJSONMap(Map<String, dynamic> json){
-    this.popularity = json ['popularity']/1;
-    this.voteCount= json ['vote_count'];
-    this.video= json ['video'];
-    this.posterPath= json ['poster_path'];
-    this.id= json ['id'].cast<int>();
-    this.adult= json ['adult'];
-    this.backdropPath= json ['backdrop_path'];
-    this.originalLanguage= json ['original_language'];
-    this.originalTitle= json ['original_title'];
-    this.genreIds= json ['genre_ids'];
-    this.title= json ['title'];
-    this.voteAverage= json ['vote_average']/1;
-    this.overview= json ['overview'];
-    this.releaseDate= json ['release_date'];
+  Movie.fromJSONMap(Map<String, dynamic> json) {
+    this.popularity = json['popularity'] / 1;
+    this.voteCount = json['vote_count'];
+    this.video = json['video'];
+    this.posterPath = json['poster_path'];
+    this.id = json['id'].cast<int>();
+    this.adult = json['adult'];
+    this.backdropPath = json['backdrop_path'];
+    this.originalLanguage = json['original_language'];
+    this.originalTitle = json['original_title'];
+    this.genreIds = json['genre_ids'];
+    this.title = json['title'];
+    this.voteAverage = json['vote_average'] / 1;
+    this.overview = json['overview'];
+    this.releaseDate = json['release_date'];
   }
 
-
-
+  getPosterImg(){
+    if(posterPath==null){
+      return 'https://sanitationsolutions.net/wp-content/uploads/2015/05/empty-image.png';
+    }else {
+      return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
+  }
 }
-
