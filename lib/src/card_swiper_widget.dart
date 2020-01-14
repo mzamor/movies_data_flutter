@@ -16,11 +16,10 @@ class CardSwiper extends StatelessWidget {
     return  Container(
       padding: EdgeInsets.only(top:10.0),
       width:double.infinity,
-      height: 300.0,
       child: Swiper(
         layout: SwiperLayout.STACK,
-        itemWidth: _screenSize.width * 0.9,
-        itemHeight: _screenSize.height * 0.5,
+        itemWidth: _screenSize.width * 0.5,
+        itemHeight: _screenSize.height *0.5,
         itemBuilder: (BuildContext context,int index){
           return ClipRRect(
             borderRadius: BorderRadius.circular(20.0),

@@ -27,7 +27,7 @@ class Movie {
   String title;
   double voteAverage;
   String overview;
-  DateTime releaseDate;
+  String releaseDate;
 
   Movie({
     this.popularity,
@@ -51,23 +51,23 @@ class Movie {
     this.voteCount = json['vote_count'];
     this.video = json['video'];
     this.posterPath = json['poster_path'];
-    this.id = json['id'].cast<int>();
+    this.id = json['id'];
     this.adult = json['adult'];
     this.backdropPath = json['backdrop_path'];
     this.originalLanguage = json['original_language'];
     this.originalTitle = json['original_title'];
-    this.genreIds = json['genre_ids'];
+    this.genreIds = json['genre_ids'].cast<int>();
     this.title = json['title'];
     this.voteAverage = json['vote_average'] / 1;
     this.overview = json['overview'];
     this.releaseDate = json['release_date'];
   }
 
-  getPosterImg(){
-    if(posterPath==null){
+  getPosterImg() {
+    if (posterPath == null) {
       return 'https://sanitationsolutions.net/wp-content/uploads/2015/05/empty-image.png';
-    }else {
-      return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500$posterPath';
     }
   }
 }
