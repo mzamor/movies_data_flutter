@@ -70,4 +70,12 @@ class Movie {
       return 'https://image.tmdb.org/t/p/w500$posterPath';
     }
   }
+
+  getBackgroundImg() {
+    if (posterPath == null) {
+      return 'https://sanitationsolutions.net/wp-content/uploads/2015/05/empty-image.png';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500$backdropPath';
+    }
+  }
 }
