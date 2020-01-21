@@ -16,6 +16,7 @@ class MovieDetail extends StatelessWidget {
               [
                SizedBox(height: 10.0),
                _posterTitle(context, movie),
+                _description(movie)
               ]
           ),
           )
@@ -65,7 +66,13 @@ class MovieDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(movie.title, style: Theme.of(context).textTheme.title, overflow: TextOverflow.ellipsis),
-                Text(movie.originalTitle, style: Theme.of(context).textTheme.subhead, overflow: TextOverflow.ellipsis)
+                Text(movie.originalTitle, style: Theme.of(context).textTheme.subhead, overflow: TextOverflow.ellipsis),
+                Row(
+                  children: <Widget> [
+                    Icon(Icons.star_border),
+                    Text(movie.voteAverage.toString(), style: Theme.of(context).textTheme.subhead)
+                  ]
+                )
               ],
             ),
           )
@@ -73,4 +80,15 @@ class MovieDetail extends StatelessWidget {
       ),
     );
   }
-}
+
+  Widget _description(Movie movie) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+      child: Text(
+        movie.overview,
+        textAlign: TextAlign.justify,
+      ),
+    );
+  }
+
+  }
