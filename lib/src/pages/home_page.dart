@@ -52,7 +52,8 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           Container(
               padding: EdgeInsets.only(left: 20.0),
-              child: Text('Popular', style: Theme.of(context).textTheme.subhead)),
+              child:
+                  Text('Popular', style: Theme.of(context).textTheme.subhead)),
           SizedBox(height: 5.0),
           StreamBuilder(
             stream: moviesProvider.popularStream,
@@ -60,8 +61,7 @@ class HomePage extends StatelessWidget {
               if (snapshot.hasData) {
                 return MovieHorizontal(
                     movies: snapshot.data,
-                    nextPage: moviesProvider.getPopularMovies
-                );
+                    nextPage: moviesProvider.getPopularMovies);
               } else {
                 return Container(
                     height: 200.0,
