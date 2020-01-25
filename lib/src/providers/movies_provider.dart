@@ -40,6 +40,15 @@ class MoviesProvider {
     return await _getMovieRequest(url);
   }
 
+  Future<List<Movie>> searchMovie(String query) async {
+    final url = Uri.https(_url, '3/search/movie', {
+      'api_key': _api_key,
+      'language': _language,
+      'query' : query
+    });
+    return await _getMovieRequest(url);
+  }
+
   Future<List<Movie>> getPopularMovies() async {
     _popular_page++;
 
